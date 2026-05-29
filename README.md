@@ -3,6 +3,10 @@
 架空のZ世代女子向けカラフル雑貨ショップ **Pop Bloom** のランディングページ。  
 ポートフォリオ作品として、AI画像生成（gpt-image-2）+ HTML/CSS素のままで実装。
 
+## 🌐 Live Demo
+
+**👉 https://pop-bloom-2.vercel.app**
+
 ## 🎨 デザイン方向性
 
 - **Y2K Pop Maximalism** — カラフル、コラージュ感、ハンドメイド風
