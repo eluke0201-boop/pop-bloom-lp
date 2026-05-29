@@ -1,6 +1,5 @@
 {
   "rewrites": [
     { "source": "/", "destination": "/site-design/index.html" }
-  ],
-  "cleanUrls": true
+  ]
 }
