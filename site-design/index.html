@@ -1,0 +1,780 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Pop Bloom — Bright Stuff for Every Day</title>
+<meta name="description" content="Pop Bloom は、Z世代向けのカラフルでポップな雑貨・ライフスタイルショップ。文房具・アクセサリ・ヘアアクセなど、毎日にちょっと楽しいを。">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- OGP -->
+<meta property="og:title" content="Pop Bloom — Bright Stuff for Every Day">
+<meta property="og:description" content="毎日にちょっと楽しいを。Z世代向けカラフル雑貨・ライフスタイルショップのデザインモック。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="../images/lp-mock-v2-09.png">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pop Bloom — Bright Stuff for Every Day">
+<meta name="twitter:description" content="毎日にちょっと楽しいを。Z世代向けカラフル雑貨・ライフスタイルショップのデザインモック。">
+<meta name="twitter:image" content="../images/lp-mock-v2-09.png">
+<!-- Favicon (Pop Bloom hero-logoから生成) -->
+<link rel="icon" type="image/png" href="../assets/transparent/logos/favicon.png">
+<link rel="apple-touch-icon" href="../assets/transparent/logos/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Fredoka:wght@500;600;700&family=Caveat+Brush&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#fbf2dd;
+    --cream-2:#f7ead0;
+    --orange:#f15a25;
+    --orange-dk:#d94a18;
+    --pink:#f4a5c0;
+    --hot-pink:#ee5d96;
+    --purple:#5b3a9c;
+    --lime:#c8d83a;
+    --yellow:#f4ca38;
+    --sky:#b5e0eb;
+    --ink:#231f1c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{color:var(--ink);font-family:"Noto Sans JP","Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body{min-width:0;
+    background:
+      radial-gradient(ellipse 740px 460px at 82% 900px, rgba(244,202,56,.28), transparent 65%),
+      radial-gradient(ellipse 620px 420px at 12% 1550px, rgba(244,165,192,.32), transparent 65%),
+      radial-gradient(ellipse 820px 460px at 87% 2200px, rgba(200,216,58,.26), transparent 65%),
+      radial-gradient(ellipse 560px 400px at 15% 2820px, rgba(91,58,156,.18), transparent 70%),
+      radial-gradient(ellipse 760px 440px at 75% 3500px, rgba(181,224,235,.42), transparent 65%),
+      radial-gradient(ellipse 440px 320px at 20% 3800px, rgba(244,165,192,.24), transparent 70%),
+      var(--cream)
+  }
+  /* スクリーンリーダー専用テキスト（視覚的には非表示） */
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  img{display:block;max-width:100%;user-select:none;-webkit-user-drag:none}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+  /* page は背景を持たず、装飾も viewport にあふれていいので overflow:visible */
+  .page{width:1440px;margin:0 auto;position:relative;overflow:visible;background:transparent}
+
+  /* ============ HEADER ============ */
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:44px 20px 0;position:relative;z-index:30}
+  .nav__logo{height:80px;display:flex;align-items:center}
+  .nav__logo img{height:100%;width:auto;max-width:none}
+  .nav__links{display:flex;gap:64px;font-family:"Fredoka",sans-serif;font-weight:600;font-size:22px;letter-spacing:.08em;color:var(--ink)}
+  .nav__links a{position:relative;padding:10px 6px;transition:color .2s}
+  .nav__links a:hover{color:var(--orange)}
+  .nav__icons{display:flex;gap:36px;align-items:center}
+  .nav__icons img{width:52px;opacity:.85}
+  .nav__cart{position:relative}
+
+  /* ============ HERO ============ */
+  .hero{position:relative;padding:36px 64px 80px;min-height:820px}
+  .hero__left{position:relative;width:620px;z-index:5}
+  .hero__typo{width:560px;margin-left:-18px;margin-top:-60px;margin-bottom:-80px;display:block}
+  .hero__sub{font-size:14px;line-height:2;margin-top:18px;color:#3a312c;letter-spacing:.04em}
+  .hero__cta{display:inline-flex;align-items:center;gap:10px;margin-top:28px;background:var(--orange);color:#fff;font-family:"Fredoka",sans-serif;font-weight:600;letter-spacing:.12em;font-size:14px;padding:16px 34px 16px 30px;border-radius:999px;box-shadow:0 8px 0 -2px rgba(241,90,37,.25);transition:transform .2s, box-shadow .2s}
+  .hero__cta:hover{transform:translateY(-2px);box-shadow:0 12px 0 -2px rgba(241,90,37,.3)}
+  .hero__cta .arrow{width:22px;height:22px;border-radius:50%;background:#fff;color:var(--orange);display:grid;place-items:center;font-size:12px}
+  .hero__right{position:absolute;top:0;right:40px;width:720px;height:720px;z-index:3}
+  .hero__blob{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+  .hero__blob.b1{transform:scale(1.0) translate(0,0)}
+  .hero__blob.b2{transform:scale(0.95) translate(60px,40px);opacity:.85;mix-blend-mode:multiply}
+  .hero__model{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center 60%;z-index:4;-webkit-mask-image:url(../assets/transparent/backgrounds/hero-bg-blob-orange.png);mask-image:url(../assets/transparent/backgrounds/hero-bg-blob-orange.png);-webkit-mask-size:contain;mask-size:contain;-webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+  /* バッジは新素材(hero-badge-cute.png)に差し替え */
+  .hero__badge{position:absolute;right:40px;bottom:60px;width:160px;height:160px;transform:rotate(-8deg);z-index:6;filter:drop-shadow(0 6px 16px rgba(91,58,156,.25))}
+  /* deco stickers */
+  .deco{position:absolute;pointer-events:none;z-index:4}
+  /* HERO decos: d-check (左下に大きく広がる) と被らない位置に */
+  .hero .d-line-y{top:30px;left:-40px;width:140px;transform:rotate(-8deg)}   /* 上左 */
+  .hero .d-star1{top:60px;left:50%;width:60px;transform:rotate(-12deg)}      /* 上中 */
+  .hero .d-burst{top:30px;right:30px;width:64px}                              /* 上右 */
+  .hero .d-heart{top:380px;right:-40px;width:70px;transform:rotate(15deg);opacity:.7;z-index:6}  /* 中右 */
+  .hero .d-sparkle{top:180px;left:42%;width:48px}                             /* 中上 (d-check避け) */
+  .hero .d-line-p{top:240px;right:80px;width:140px;transform:rotate(15deg)}  /* 中右上 (d-check避け) */
+  .hero .d-check{bottom:-20px;left:-180px;width:780px;transform:rotate(5deg);opacity:.95} /* 下左大 */
+  .hero .d-star2{bottom:60px;right:-30px;width:48px;z-index:6}              /* 下右 */
+
+  /* ============ ABOUT ============ */
+  .about{position:relative;padding:40px 64px 100px;display:grid;grid-template-columns:340px 1fr;gap:60px}
+  .about__title{width:240px;margin-top:-110px;margin-bottom:-75px;display:block;transform:rotate(-3deg);transform-origin:left center}
+  /* 線はtight版(889x41の細長)を使うので marginシンプル */
+  .about__title-line{display:block;width:170px;margin:0 0 0 30px;transform:rotate(-3deg);transform-origin:left center;opacity:1}
+  .about__title-line--2{margin:6px 0 24px 70px;width:110px}
+  .about__body{font-size:13.5px;line-height:2.1;color:#3a312c;letter-spacing:.03em}
+  .about__cta{display:inline-flex;align-items:center;gap:10px;margin-top:24px;background:var(--pink);color:#fff;font-family:"Fredoka",sans-serif;font-weight:600;letter-spacing:.14em;font-size:12px;padding:14px 28px;border-radius:999px}
+  .about__cta:hover{background:var(--hot-pink)}
+  .about__right{position:relative;height:560px}
+  /* フォトフレーム素材を背景に、写真は枠の中に重ねる */
+  .about__photo1{position:absolute;left:-10px;top:0;width:480px;height:480px;transform:rotate(-3deg)}
+  .about__photo1 .frame{position:absolute;inset:0;width:100%;height:100%;z-index:2}
+  /* パープル色面: photo-frame-yellow の実測内枠ぴったり */
+  .about__photo1 .photo-bg{position:absolute;inset:0;background:var(--purple);z-index:0;clip-path:inset(14% 13.2% 16% 17.2%)}
+  /* 写真: 変更前のシンプルな配置（はみ出さない元のマスキング） */
+  .about__photo1 .photo{position:absolute;inset:14%;width:72%;height:72%;object-fit:contain;z-index:1}
+  .about__photo2{position:absolute;right:-10px;top:60px;width:420px;height:460px;transform:rotate(4deg)}
+  /* 写真は要素いっぱいに、ポラロイドシルエットでmaskして枠外を非表示
+     background-colorで写真が埋めきれない内枠の隙間を埋める */
+  .about__photo2 .photo{
+    position:absolute;inset:0;width:100%;height:100%;
+    object-fit:cover;object-position:center 38%;z-index:0;
+    background-color:var(--pink-light, #ffd6e0);
+    -webkit-mask-image:url(../assets/transparent/frames/photo-frame-polaroid-silhouette.png);
+    mask-image:url(../assets/transparent/frames/photo-frame-polaroid-silhouette.png);
+    -webkit-mask-size:100% 100%;mask-size:100% 100%;
+    -webkit-mask-position:center;mask-position:center;
+    -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+  }
+  /* フレームを上に重ねる → 白枠が写真を覆い、透明な内枠から写真が見える */
+  .about__photo2 .frame{position:absolute;inset:0;width:100%;height:100%;z-index:2}
+  /* ポラロイド外形下端y≒89%、内枠下端y≒72%、白枠キャプションエリアは中間 → bottom 16%で中央配置 */
+  .about__photo2 .cap{position:absolute;left:0;right:0;bottom:16%;font-family:"Caveat Brush",cursive;font-size:24px;color:var(--orange);text-align:center;letter-spacing:.02em;z-index:3}
+  /* マスキングテープ装飾（カラフルな色を要素ごとに） */
+  .about__tape{position:absolute;width:120px;z-index:3;pointer-events:none}
+  .about__photo1 .about__tape{top:-18px;left:50%;transform:translateX(-50%) rotate(-8deg)}
+  .about__photo2 .about__tape{top:-14px;right:-6px;transform:rotate(20deg)}
+  /* ABOUT decos: 4隅に分散 */
+  .about .d-sparkle{top:-20px;left:30px;width:46px}
+  .about .d-star-y{bottom:0;right:-30px;width:50px}
+  .about .d-circle{top:10px;right:40%;width:54px;opacity:.7}
+
+  /* ============ PRODUCTS ============ */
+  .products{position:relative;padding:20px 64px 100px}
+  .products__head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px}
+  .products__title{width:280px;margin-top:-80px;margin-bottom:-90px;display:block;transform:rotate(-2deg);transform-origin:left center}
+  .products__viewall{display:inline-flex;align-items:center;gap:10px;border:1.5px solid var(--ink);border-radius:999px;padding:10px 22px;font-family:"Fredoka",sans-serif;font-weight:600;font-size:12px;letter-spacing:.14em}
+  .products__viewall .arrow{width:18px;height:18px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:10px}
+  .products__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
+  .product{position:relative;text-align:center}
+  .product__img{position:relative;height:300px;display:grid;place-items:center;z-index:1;margin-bottom:14px}
+  .product__bg{position:absolute;left:50%;top:140px;transform:translate(-50%,-50%);width:115%;height:300px;z-index:0;pointer-events:none}
+  .product__bg img{width:100%;height:100%;object-fit:contain}
+  .product__img img{max-height:200px;max-width:65%;filter:drop-shadow(0 8px 14px rgba(0,0,0,.08));position:relative;z-index:1}
+  .product__name{font-family:"Fredoka",sans-serif;font-weight:600;font-size:13px;letter-spacing:.14em;color:var(--ink);position:relative;z-index:1}
+  .product__price{font-family:"Fredoka",sans-serif;font-weight:500;font-size:13px;color:#5e514a;margin-top:6px;position:relative;z-index:1;letter-spacing:.05em}
+  .product__badge{display:inline-block;background:var(--orange);color:#fff;font-family:"Caveat Brush",cursive;font-size:13px;padding:3px 10px;border-radius:8px;margin-top:6px;transform:rotate(-3deg)}
+  .product__plus{display:inline-block;background:var(--orange);color:#fff;font-family:"Fredoka",sans-serif;font-weight:700;font-size:10px;padding:2px 6px;border-radius:8px;margin-left:6px;vertical-align:middle}
+  /* PRODUCTS decos: 上下と中央に分散 */
+  .products .d-star1{top:30px;left:30%;width:36px;z-index:2;transform:rotate(-15deg)}
+  .products .d-sparkle{bottom:30px;left:25%;width:34px;transform:rotate(20deg)}
+
+  /* ============ LOOKBOOK ============ */
+  /* LOOKBOOK下の余白をさらに詰めて、DROP+COMMUNITYをもっと上に */
+  .lookbook{position:relative;padding:0 64px 0;display:grid;grid-template-columns:300px 1fr;gap:48px}
+  .lookbook__title{width:300px;margin-top:-40px;margin-bottom:-50px;display:block;transform:rotate(-4deg);transform-origin:left center}
+  .lookbook__body{font-size:13.5px;line-height:2.1;color:#3a312c}
+  .lookbook__cta{display:inline-flex;align-items:center;gap:10px;margin-top:22px;background:var(--pink);color:#fff;font-family:"Fredoka",sans-serif;font-weight:600;letter-spacing:.14em;font-size:12px;padding:13px 26px;border-radius:999px}
+  .lookbook__cta:hover{background:var(--hot-pink)}
+  .lookbook__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:center}
+  .lookcard{position:relative;height:560px;display:flex;align-items:center;justify-content:center}
+  .lookcard.tilt-1, .lookcard.tilt-2, .lookcard.tilt-3{height:560px}
+  .lookcard__bg{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:200%;height:175%;object-fit:contain;z-index:0}
+  .lookcard__img{position:relative;z-index:1;width:95%;height:105%;object-fit:contain;object-position:center}
+  .lookcard.tilt-1 .lookcard__bg{transform:translate(-50%,-50%) rotate(-4deg)}
+  .lookcard.tilt-2 .lookcard__bg{transform:translate(-50%,-50%) rotate(3deg)}
+  .lookcard.tilt-3 .lookcard__bg{transform:translate(-50%,-50%) rotate(-2deg)}
+  .lookcard.tilt-4 .lookcard__bg{transform:translate(-50%,-50%) rotate(2deg);width:120%;height:130%;filter:drop-shadow(0 14px 28px rgba(0,0,0,.08))}
+
+  /* ============ NEXT DROP ============ */
+  /* もっと詰める：DROPを上に重ねるmargin-top -40px、padding上下40px */
+  .drop{position:relative;margin:-40px 0 60px;padding:40px 100px;min-height:520px;display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:40px;align-items:center}
+  .drop__bgimg{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:120%;height:180%;object-fit:fill;z-index:0;pointer-events:none}
+  .drop > *:not(.drop__bgimg):not(.sr-only){position:relative;z-index:1}
+  .drop__shop{position:relative}
+  .drop__shop img{width:440px;transform:rotate(-3deg);filter:drop-shadow(0 14px 28px rgba(0,0,0,.18))}
+  .drop__limited{position:absolute;left:-10px;bottom:0;width:118px;height:118px;background:var(--hot-pink);color:#fff;border-radius:50%;display:grid;place-items:center;text-align:center;font-family:"Caveat Brush",cursive;font-size:17px;line-height:1.15;transform:rotate(-12deg);box-shadow:0 8px 16px rgba(238,93,150,.35);padding:12px}
+  .drop__copy{padding:0 10px;color:#fff;transform:rotate(-2deg);transform-origin:left center}
+  .drop__title{width:460px;display:block;margin-top:-130px;margin-bottom:-150px}
+  .drop__details{font-family:"Fredoka",sans-serif;font-weight:500;font-size:18px;line-height:1.5;color:#3a2068;letter-spacing:.04em}
+  .drop__cta{display:inline-flex;align-items:center;gap:10px;margin-top:14px;background:var(--purple);color:#fff;font-family:"Fredoka",sans-serif;font-weight:600;letter-spacing:.14em;font-size:14px;padding:14px 28px;border-radius:999px}
+  .drop__cta .arrow{width:20px;height:20px;border-radius:50%;background:#fff;color:var(--purple);display:grid;place-items:center;font-size:12px}
+  .drop__product{position:relative;background:#fff;padding:14px 14px 18px;box-shadow:0 18px 38px rgba(0,0,0,.18);transform:rotate(6deg);width:340px;justify-self:end}
+  .drop__product img{width:100%;height:280px;object-fit:cover}
+  /* DROP decos: 4隅に分散（右側に密集していたのを左右両方に） */
+  .drop .d-flower{position:absolute;left:30px;top:20px;width:50px;z-index:5}
+  .drop .d-sparkle{position:absolute;left:80px;bottom:30px;width:42px;z-index:5}
+
+  /* ============ COMMUNITY ============ */
+  /* DROPセクションのすぐ下にぴったり配置（上余白なし） */
+  .community{position:relative;padding:0 64px 80px;display:grid;grid-template-columns:300px 1fr;gap:32px;align-items:center}
+  .community__title{width:280px;margin-top:-70px;margin-bottom:-80px;display:block;transform:rotate(-3deg);transform-origin:left center}
+  .community__body{font-size:13.5px;line-height:2.1;color:#3a312c}
+  .community__tag{display:inline-block;margin-top:14px;color:var(--orange);font-family:"Fredoka",sans-serif;font-weight:700;font-size:18px;letter-spacing:.05em}
+  .community__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;position:relative}
+  .community__grid img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:8px;box-shadow:0 8px 18px rgba(0,0,0,.08);padding:12px;background:#fff}
+  .community__grid img:nth-child(1){transform:rotate(-2deg);background:var(--pink)}
+  .community__grid img:nth-child(2){transform:rotate(2deg);background:var(--yellow);object-fit:contain;padding:36px}
+  .community__grid img:nth-child(3){transform:rotate(-1.5deg);background:var(--lime)}
+  .community__grid img:nth-child(4){transform:rotate(2.5deg);background:var(--sky)}
+  .community__follow{position:absolute;right:-30px;top:-20px;width:92px;height:92px;background:var(--purple);color:#fff;border-radius:50%;display:grid;place-items:center;text-align:center;font-family:"Caveat Brush",cursive;font-size:15px;line-height:1.15;transform:rotate(8deg);z-index:5;box-shadow:0 8px 16px rgba(91,58,156,.3)}
+
+  /* ============ FOOTER ============ */
+  /* COMMUNITYとフッター波形の間を空ける */
+  /* footer は .page の外に出して viewport 全幅に */
+  .footer{position:relative;background:var(--hot-pink);color:#fff;padding:100px 0 40px;margin-top:140px}
+  /* 波形上端: SVG background でビューポート幅にスケール対応 */
+  .footer::before{content:"";position:absolute;top:-80px;left:0;right:0;height:82px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 82' preserveAspectRatio='none'><path d='M 0 80 C 200 0, 400 100, 720 40 C 1040 -10, 1240 90, 1440 30 L 1440 82 L 0 82 Z' fill='%23ee5d96'/></svg>");background-size:100% 100%;background-repeat:no-repeat}
+  .footer__inner{max-width:1312px;margin:0 auto;padding:0 64px}
+  .footer__grid{display:grid;grid-template-columns:280px repeat(3,1fr) 1fr;gap:40px;align-items:flex-start}
+  .footer__logo{width:220px}
+  .footer__col h4{font-family:"Fredoka",sans-serif;font-weight:700;font-size:22px;letter-spacing:.14em;margin-bottom:26px}
+  .footer__col ul{list-style:none;display:flex;flex-direction:column;gap:18px;font-family:"Fredoka",sans-serif;font-weight:500;font-size:18px;letter-spacing:.14em}
+  .footer__col a:hover{opacity:.7}
+  .footer__follow{display:flex;flex-direction:column;align-items:center}
+  .footer__follow h4{font-family:"Fredoka",sans-serif;font-weight:700;font-size:22px;letter-spacing:.14em;margin-bottom:26px;text-align:center}
+  .footer__sns{display:flex;gap:26px;flex-shrink:0;align-items:center}
+  .footer__sns a{flex-shrink:0;display:inline-block}
+  .footer__sns img{width:64px;height:64px;max-width:none;filter:brightness(0) invert(1)}
+  /* Instagram は他2つに比べてアウトラインが細く見えるので少し拡大 */
+  .footer__sns a:nth-child(1) img{transform:scale(1.12)}
+  .footer__bottom{margin-top:80px;font-family:"Fredoka",sans-serif;font-size:15px;letter-spacing:.1em;opacity:.85;text-align:right}
+  /* FOOTER decos: 既存 + 対角線配置 */
+  .footer__deco{position:absolute;right:60px;top:60px;width:64px;opacity:.85}
+  .footer__deco-2{position:absolute;left:60px;top:80px;width:60px;opacity:.5;transform:rotate(-20deg)}
+
+  /* small typographic helpers */
+  .smcaps{font-family:"Fredoka",sans-serif;font-weight:600;letter-spacing:.14em}
+
+  /* ============ Y2K 装飾レイヤー & アニメーション ============ */
+  /* セクションごとに装飾レイヤー */
+  .y2k-deco{position:absolute;pointer-events:none;z-index:2}
+  /* アニメーション: ふわふわ浮く */
+  @keyframes y2kFloat{0%,100%{transform:translateY(0) rotate(var(--rot,0deg))}50%{transform:translateY(-12px) rotate(var(--rot,0deg))}}
+  /* アニメーション: 回転する */
+  @keyframes y2kSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+  /* アニメーション: ピカピカ */
+  @keyframes y2kTwinkle{0%,100%{opacity:.4;transform:scale(.8) rotate(var(--rot,0deg))}50%{opacity:1;transform:scale(1.1) rotate(var(--rot,0deg))}}
+  /* アニメーション: 左右にゆらゆら */
+  @keyframes y2kDrift{0%,100%{transform:translateX(0) rotate(var(--rot,0deg))}50%{transform:translateX(8px) rotate(calc(var(--rot,0deg) + 4deg))}}
+  .y2k-float{animation:y2kFloat 4s ease-in-out infinite}
+  .y2k-spin{animation:y2kSpin 12s linear infinite}
+  .y2k-twinkle{animation:y2kTwinkle 2.5s ease-in-out infinite}
+  .y2k-drift{animation:y2kDrift 5s ease-in-out infinite}
+
+  /* セクション別のbackgroundは廃止（.pageに統合してセクション境界をまたぐようにした） */
+
+  /* ============ ホバー / インタラクション ============ */
+  /* NAV リンク: 下にラインがニュッと出る */
+  .nav__links a{position:relative;padding:10px 6px;transition:color .2s}
+  .nav__links a::after{content:"";position:absolute;left:6px;right:6px;bottom:2px;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.7,.0,.3,1)}
+  .nav__links a:hover::after{transform:scaleX(1)}
+  /* NAV アイコン: ホップする */
+  .nav__icons a{transition:transform .25s cubic-bezier(.34,1.56,.64,1)}
+  .nav__icons a:hover{transform:translateY(-4px) scale(1.1)}
+  .nav__icons a:hover img{opacity:1}
+  /* PRODUCT カード: 全体が浮き上がって少し回転 */
+  .product{transition:transform .35s cubic-bezier(.34,1.56,.64,1);cursor:pointer}
+  .product:hover{transform:translateY(-10px) rotate(-1deg)}
+  .product:hover .product__img img{transform:scale(1.08) rotate(3deg);filter:drop-shadow(0 14px 22px rgba(0,0,0,.15))}
+  .product__img img{transition:transform .4s cubic-bezier(.34,1.56,.64,1),filter .3s}
+  .product:hover .product__bg img{transform:scale(1.05)}
+  .product__bg img{transition:transform .4s ease-out}
+  .product:hover .product__name{color:var(--orange)}
+  .product__name{transition:color .25s}
+  /* LOOKBOOK カード: 微妙に上がる + 画像ズーム */
+  .lookcard{transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+  .lookcard:hover{transform:translateY(-8px)}
+  .lookcard:hover .lookcard__img{transform:scale(1.06) rotate(-1deg)}
+  .lookcard:hover .lookcard__bg{transform:translate(-50%,-50%) rotate(-4deg) scale(1.04)}
+  .lookcard__img,.lookcard__bg{transition:transform .4s ease-out}
+  /* COMMUNITY 画像: ホバーで膨らむ + 影強く */
+  .community__grid img{transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s,padding .3s}
+  .community__grid img:hover{transform:scale(1.06) rotate(0deg) !important;box-shadow:0 14px 28px rgba(0,0,0,.18);padding:16px}
+  /* COMMUNITY FOLLOW USバッヂ: クルクル */
+  .community__follow{transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+  .community__follow:hover{transform:rotate(-8deg) scale(1.08)}
+  /* FOOTER SNS アイコン: ブルッと震える */
+  @keyframes y2kWiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-10deg)}75%{transform:rotate(10deg)}}
+  .footer__sns a{transition:transform .25s}
+  .footer__sns a:hover{transform:translateY(-4px) scale(1.1)}
+  .footer__sns a:hover img{animation:y2kWiggle .4s ease-in-out}
+  /* FOOTER テキストリンク: 矢印が出る */
+  .footer__col a{position:relative;transition:opacity .2s,padding-left .25s}
+  .footer__col a:hover{opacity:1;padding-left:14px}
+  .footer__col a::before{content:"→";position:absolute;left:-2px;opacity:0;transition:opacity .25s,left .25s}
+  .footer__col a:hover::before{opacity:1;left:0}
+  /* HERO CTA: 矢印が走る */
+  .hero__cta{transition:transform .25s,box-shadow .25s,background .25s}
+  .hero__cta:hover{background:var(--orange-dk)}
+  .hero__cta .arrow{transition:transform .25s}
+  .hero__cta:hover .arrow{transform:translateX(4px) rotate(-10deg)}
+  /* ABOUT / LOOKBOOK / DROP CTA: 矢印スライド */
+  .about__cta,.lookbook__cta,.drop__cta,.products__viewall{transition:transform .2s,background .2s}
+  .about__cta:hover,.lookbook__cta:hover{transform:translateY(-2px)}
+  .drop__cta:hover{transform:translateY(-2px);background:#3a2068}
+  .products__viewall:hover{background:var(--ink);color:#fff}
+  .products__viewall .arrow{transition:transform .25s}
+  .products__viewall:hover .arrow{transform:translateX(4px);background:#fff;color:var(--ink)}
+  /* ABOUT 写真: ホバーで少しゆらぐ */
+  .about__photo1,.about__photo2{transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+  .about__photo1:hover{transform:rotate(-1deg) scale(1.03)}
+  .about__photo2:hover{transform:rotate(6deg) scale(1.03)}
+  /* ABOUT 写真フレームのテープ: ホバー時に独自に少し跳ねる
+     インラインstyleを撤去してCSSに集約（hover時の上書きが効くように） */
+  .about__tape--photo1,
+  .about__tape--photo2{transition:transform .4s cubic-bezier(.34,1.56,.64,1);transform-origin:center}
+  /* specificity を 20 以上にして .about__photo2 .about__tape を上書き */
+  /* photo1 tape: photo1の50%中心 - tape半分(60px) で確実に中央寄せ（viewport非依存） */
+  .about__photo1 .about__tape--photo1{top:-29px;left:calc(50% - 60px);transform:rotate(-8deg)}
+  .about__photo2 .about__tape--photo2{transform:translate(-13.18px,-2.09px) matrix3d(0.94,0.34,0,0,-0.34,0.94,0,0,0,0,1,0,0,0,0,1) rotate(28.88deg)}
+  /* top-left の紫テープ（旧hero所属 → photo2の子に移植） */
+  .about__photo2 .about__tape--photo2-tl{top:-30px;left:30px;right:auto;width:132px;height:auto;transform:rotate(-34deg);transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+  /* hover時は位置キープでscaleだけ（rest状態と位置・回転同じ、scaleのみ変化） */
+  .about__photo1:hover .about__tape--photo1{transform:rotate(-8deg) scale(1.05)}
+  .about__photo2:hover .about__tape--photo2{transform:translate(-13.18px,-2.09px) matrix3d(0.94,0.34,0,0,-0.34,0.94,0,0,0,0,1,0,0,0,0,1) rotate(28.88deg) scale(1.05)}
+  .about__photo2:hover .about__tape--photo2-tl{transform:rotate(-34deg) scale(1.05)}
+  /* DROP ノベルティバッヂ: クルクル */
+  .drop__limited{transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+  .drop__limited:hover{transform:rotate(-20deg) scale(1.1)}
+
+  /* デザインモック告知バー（最上部） */
+  .demo-banner{background:var(--ink);color:#fff;font-size:13px;letter-spacing:.05em;text-align:center;padding:10px 20px;font-family:"Noto Sans JP",sans-serif;position:relative;z-index:50}
+  .demo-banner b{color:var(--yellow)}
+
+  /* ダミーリンクの意図表示（href="#" の全リンクに適用） */
+  a[href="#"]{cursor:not-allowed}
+  a[href="#"][aria-disabled="true"]:focus-visible{outline:2px dashed var(--orange);outline-offset:3px}
+
+  /* ============================================
+     RESPONSIVE
+     1440px がデザインの基準。1280以下は素直に詰める。
+     ============================================ */
+  @media (max-width: 1440px){
+    .page{width:100%;max-width:1440px}
+  }
+  @media (max-width: 1280px){
+    /* 装飾を間引き */
+    .hero .d-check{width:600px;left:-150px;opacity:.7}
+    .hero .d-line-y, .hero .d-line-p{display:none}
+    .y2k-deco[src*="line-"]{display:none}
+  }
+  @media (max-width: 1024px){
+    /* タブレット横: 重ステッカー非表示、HERO model縮小 */
+    .hero{padding:36px 32px 60px;min-height:auto}
+    .hero__left{width:50%}
+    .hero__right{width:50%;height:600px}
+    .hero .d-check{display:none}
+    .hero .d-burst, .hero .d-star1{display:none}
+    .y2k-deco{display:none}
+    .about{padding:40px 32px 80px}
+    .products, .lookbook, .community, .drop{padding-left:32px;padding-right:32px}
+    .footer__inner{padding:0 32px}
+  }
+  @media (max-width: 768px){
+    /* タブレット縦〜スマホ: 完全リフロー */
+    body{font-size:14px}
+    /* NAV: ロゴ + ハンバーガー風（icons列） */
+    .nav{flex-wrap:wrap;padding:16px 16px 0;gap:12px}
+    .nav__logo{height:50px;order:1}
+    .nav__icons{order:2;gap:18px;margin-left:auto}
+    .nav__icons img{width:28px}
+    .nav__links{order:3;width:100%;justify-content:space-between;gap:6px;font-size:11px;padding:8px 4px;border-top:1px solid rgba(0,0,0,.08);flex-wrap:nowrap}
+    .nav__links a{padding:6px 2px;white-space:nowrap;flex-shrink:0}
+    .nav__links a::after{display:none}
+    /* HERO 縦並び */
+    .hero{padding:20px 16px 40px;display:flex;flex-direction:column}
+    .hero__left{width:100%;text-align:center}
+    .hero__typo{width:100%;max-width:320px;margin:0 auto -20px}
+    .hero__sub{font-size:13px;text-align:center;line-height:1.8}
+    .hero__cta{margin:20px auto 0;display:inline-flex}
+    .hero__right{position:relative;right:auto;top:auto;width:100%;height:340px;margin-top:24px}
+    .hero__badge{width:90px;height:90px;right:0;bottom:20px}
+    .hero .deco, .hero .d-check{display:none}
+    /* ABOUT 縦並び */
+    .about{grid-template-columns:1fr;gap:32px;padding:30px 16px 60px}
+    .about__title{width:140px;margin-top:-30px;margin-bottom:-20px}
+    .about__title-line{width:120px;margin-left:20px}
+    .about__title-line--2{width:80px;margin:4px 0 16px 50px}
+    .about__body{font-size:13px;line-height:1.9;text-align:left}
+    .about__right{height:auto;position:relative;padding-top:20px}
+    .about__photo1{position:relative;left:0;top:0;width:90%;max-width:320px;height:320px;margin:0 auto 24px;transform:rotate(-2deg)}
+    .about__photo2{position:relative;right:0;top:0;width:90%;max-width:320px;height:340px;margin:0 auto;transform:rotate(3deg)}
+    .about__photo1 .about__tape--photo1{transform:translateX(0) rotate(-8deg)}
+    .about__photo2 .about__tape--photo2{transform:rotate(25deg);right:0;top:-12px;width:90px}
+    .about__photo2 .about__tape--photo2-tl{transform:rotate(-25deg);left:10px;top:-20px;width:90px}
+    .about .y2k-deco, .about .deco{display:none}
+    /* PRODUCTS 2列 */
+    .products{padding:20px 16px 40px}
+    .products__head{flex-direction:column;align-items:flex-start;gap:14px;margin-bottom:24px}
+    .products__title{width:160px;margin-top:-20px;margin-bottom:-20px}
+    .products__viewall{font-size:11px}
+    .products__grid{grid-template-columns:repeat(2,1fr);gap:14px}
+    .product__bg{height:160px;top:90px}
+    .product__img{height:160px}
+    .product__img img{max-height:120px}
+    .product__name{font-size:11px}
+    .product__price{font-size:12px}
+    .products .y2k-deco, .products .deco{display:none}
+    /* LOOKBOOK 縦+2列 */
+    .lookbook{grid-template-columns:1fr;gap:24px;padding:0 16px}
+    .lookbook__left{text-align:center}
+    .lookbook__title{width:200px;margin:0 auto -10px}
+    .lookbook__body{font-size:13px;text-align:center}
+    .lookbook__cta{display:inline-flex}
+    .lookbook__grid{grid-template-columns:repeat(2,1fr);gap:8px}
+    .lookcard, .lookcard.tilt-1, .lookcard.tilt-2, .lookcard.tilt-3, .lookcard.tilt-4{height:220px}
+    .lookcard__bg{width:90% !important;height:auto !important;max-width:160px !important;transform:translate(-50%,-50%) !important;position:absolute !important;left:50% !important;top:50% !important}
+    .lookcard__img{width:auto !important;height:auto !important;max-width:80% !important;max-height:80% !important;transform:none !important;position:relative !important}
+    .lookbook .y2k-deco{display:none}
+    /* DROP 縦並び */
+    .drop{grid-template-columns:1fr;gap:20px;padding:30px 16px;min-height:auto;margin:20px 0}
+    .drop__bgimg{height:100%}
+    .drop__shop{text-align:center}
+    .drop__shop img{width:240px}
+    .drop__limited{width:88px;height:88px;font-size:11px;line-height:1.15;left:-6px;bottom:auto;top:-10px;padding:8px}
+    .drop__copy{padding:0;text-align:center;transform:none}
+    .drop__title{width:240px;margin:-30px auto -30px;display:block}
+    .drop__details{font-size:14px;text-align:center}
+    .drop__cta{margin:16px auto;font-size:12px;padding:12px 22px}
+    .drop__product{width:200px;justify-self:center;margin:0 auto;transform:rotate(3deg)}
+    .drop__product img{height:160px}
+    .drop .y2k-deco, .drop .deco{display:none}
+    .drop > img[src*="sticker-dot"], .drop > img[src*="doodle-star"]{display:none}
+    /* COMMUNITY 2列 */
+    .community{grid-template-columns:1fr;gap:20px;padding:20px 16px 30px}
+    .community__title{width:160px;margin:0 auto -20px;display:block}
+    .community__body{font-size:13px;text-align:center}
+    .community__left{text-align:center}
+    .community__grid{grid-template-columns:repeat(2,1fr);gap:10px}
+    .community__grid img{padding:8px}
+    .community__follow{right:0;top:-10px;width:60px;height:60px;font-size:11px}
+    .community .y2k-deco{display:none}
+    /* FOOTER */
+    .footer{padding:60px 0 30px;margin-top:50px}
+    .footer__inner{padding:0 16px}
+    .footer__grid{grid-template-columns:1fr 1fr;gap:24px}
+    .footer__logo{width:120px;grid-column:1/-1;margin:0 auto 8px}
+    .footer__col h4, .footer__follow h4{font-size:14px;margin-bottom:10px;letter-spacing:.1em}
+    .footer__col ul{font-size:12px;gap:8px}
+    .footer__sns{gap:14px}
+    .footer__sns img{width:40px;height:40px}
+    .footer__sns a:nth-child(1) img{transform:scale(1.1)}
+    .footer__follow{grid-column:1/-1;align-items:center;margin-top:8px}
+    .footer__bottom{text-align:center;margin-top:30px;font-size:10px}
+    .footer__deco, .footer__deco-2, .footer .y2k-deco{display:none}
+    .footer::before{height:48px;top:-46px}
+  }
+  @media (max-width: 480px){
+    /* スマホ: さらに調整 */
+    .hero__right{height:280px}
+    .hero__badge{width:72px;height:72px;font-size:10px}
+    .products__grid{grid-template-columns:1fr;gap:20px}
+    .product__bg{height:200px;top:110px}
+    .product__img{height:200px}
+    .product__img img{max-height:160px}
+    .lookbook__grid{grid-template-columns:1fr;gap:14px}
+    .lookcard, .lookcard.tilt-1, .lookcard.tilt-2, .lookcard.tilt-3, .lookcard.tilt-4{height:280px}
+    .lookcard__bg{max-width:200px !important}
+    .community__grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="demo-banner">これは <b>Pop Bloom</b> のデザインモックです。リンクは実機能していません。</div>
+<div class="page">
+
+  <!-- ============ HEADER ============ -->
+  <header class="nav" data-screen-label="01 Header">
+    <a class="nav__logo" href="#" aria-disabled="true"><img src="../assets/transparent/logos/hero-logo.png" alt="Pop Bloom"></a>
+    <nav class="nav__links">
+      <a href="#" aria-disabled="true">NEW IN</a>
+      <a href="#" aria-disabled="true">SHOP</a>
+      <a href="#" aria-disabled="true">LOOKBOOK</a>
+      <a href="#" aria-disabled="true">ABOUT</a>
+      <a href="#" aria-disabled="true">JOURNAL</a>
+    </nav>
+    <div class="nav__icons">
+      <a href="#" aria-disabled="true"><img src="../assets/transparent/ui/nav-icon-search.png" alt="Search"></a>
+      <a href="#" aria-disabled="true"><img src="../assets/transparent/ui/nav-icon-heart.png" alt="Wishlist"></a>
+      <a href="#" aria-disabled="true" class="nav__cart"><img src="../assets/transparent/ui/nav-icon-cart.png" alt="Cart" data-comment-anchor="6d6ba892bf-img"></a>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" data-screen-label="02 Hero" data-comment-anchor="27bf8dbd8b-section">
+    <h1 class="sr-only">Pop Bloom — Bright Stuff for Every Day!</h1>
+    <div class="hero__left">
+      <img class="hero__typo" src="../assets/transparent/typography/hero-typo.png" alt="Bright Stuff for Every Day!">
+      <p class="hero__sub">
+        毎日を、ちょっともっと自分らしく。<br>
+        Pop Bloom はじける雑貨と、かわいいの魔法。
+      </p>
+      <a class="hero__cta" href="#" aria-disabled="true">
+        SHOP NEW IN <span class="arrow">→</span>
+      </a>
+    </div>
+
+    <div class="hero__right">
+      <img class="hero__blob b1" src="../assets/transparent/backgrounds/hero-bg-blob-orange.png" alt="">
+      <img class="hero__blob b2" src="../assets/transparent/backgrounds/hero-bg-blob-yellow.png" alt="">
+      <img class="hero__model" src="../assets/transparent/photos/hero-model.png" alt="" data-comment-anchor="3a849a7a88-img">
+      <img class="hero__badge" src="../assets/transparent/ui/hero-badge-cute.png" alt="かわいいを世界中へ！">
+    </div>
+
+    <img class="deco d-star1" src="../assets/transparent/stickers/doodle-star-orange.png" alt="">
+    <img class="deco d-burst" src="../assets/transparent/stickers/doodle-burst-yellow.png" alt="">
+    <img class="deco d-heart" src="../assets/transparent/stickers/doodle-heart-pink.png" alt="">
+    <img class="deco d-star2" src="../assets/transparent/stickers/sticker-star-yellow.png" alt="">
+    <img class="deco d-line-y" src="../assets/transparent/stickers/line-thin-yellow.png" alt="">
+    <img class="deco d-line-p" src="../assets/transparent/stickers/line-wavy-pink.png" alt="">
+    <img class="deco d-check" src="../assets/transparent/stickers/sticker-ribbon-lime-check.png?v=2" alt="">
+    <img class="deco d-sparkle" src="../assets/transparent/stickers/sticker-sparkle.png" alt="">
+    <!-- sticker-arrow-curve: CTAボタン上で誘導（d-checkと被らない位置） -->
+    <img class="y2k-deco y2k-drift" src="../assets/transparent/stickers/sticker-arrow-curve.png" alt="" style="top:430px;left:350px;width:60px;transform:rotate(-25deg);opacity:.85;z-index:5">
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about" data-screen-label="03 About">
+    <h2 class="sr-only">ABOUT</h2>
+    <div class="about__left">
+      <img class="about__title" src="../assets/transparent/typography/section-title-about.png" alt="ABOUT">
+      <img class="about__title-line" src="../assets/transparent/stickers/line-thin-pink-tight.png" alt="">
+      <img class="about__title-line about__title-line--2" src="../assets/transparent/stickers/line-thin-pink-tight.png" alt="">
+      <p class="about__body">
+        Pop Bloom は、気分が上がる雑貨と<br>
+        ちょっとレトロでポップなアイテムを集めた<br>
+        ライフスタイルショップ。<br>
+        自分の「好き」を着飾って、もっと自由に。<br>
+        もっと楽しく毎日を彩ろう！
+      </p>
+      <a class="about__cta" href="#" aria-disabled="true">READ MORE →</a>
+    </div>
+    <div class="about__right">
+      <div class="about__photo1">
+        <div class="photo-bg"></div>
+        <img class="photo" src="../assets/transparent/photos/about-product-display.png" alt="Pop Bloom store display">
+        <img class="frame" src="../assets/transparent/frames/photo-frame-yellow.png" alt="">
+        <img class="about__tape about__tape--photo1" src="../assets/transparent/stickers/tape-pink.png" alt="">
+      </div>
+      <div class="about__photo2">
+        <img class="photo" src="../assets/transparent/photos/ugc-04.png" alt="Pop Bloom accessories">
+        <img class="frame" src="../assets/transparent/frames/photo-frame-polaroid.png" alt="">
+        <div class="cap">ENJOY YOUR WORLD!</div>
+        <img class="about__tape about__tape--photo2" src="../assets/transparent/stickers/tape-purple.png" alt="">
+        <img class="about__tape about__tape--photo2-tl" src="../assets/transparent/stickers/tape-purple.png" alt="">
+      </div>
+      <img class="deco d-sparkle" src="../assets/transparent/stickers/sticker-sparkle.png" alt=""
+           style="transform:translate(69px,-96px)">
+      <img class="deco d-star-y" src="../assets/transparent/stickers/doodle-star-orange.png" alt="">
+      <img class="deco d-circle" src="../assets/transparent/stickers/doodle-circle-lime.png" alt="">
+    </div>
+    <!-- Y2K装飾 (ABOUT) - section 4隅+α に散らす -->
+    <img class="y2k-deco y2k-twinkle" src="../assets/transparent/stickers/sticker-star-pink.png" alt="" style="--rot:15deg;top:-30px;left:580px;width:36px">
+    <img class="y2k-deco y2k-float" src="../assets/transparent/stickers/sticker-heart-pink.png" alt="" style="--rot:-12deg;bottom:-30px;left:230px;width:42px;animation-delay:.5s">
+    <img class="y2k-deco y2k-drift" src="../assets/transparent/stickers/doodle-exclaim-pink.png" alt="" style="--rot:8deg;top:320px;right:-40px;width:46px">
+    <img class="y2k-deco y2k-spin" src="../assets/transparent/stickers/sticker-sparkle.png" alt="" style="bottom:-20px;left:68%;width:30px;opacity:.7">
+    <img class="y2k-deco" src="../assets/transparent/stickers/line-wavy-lime.png" alt="" style="top:240px;left:-50px;width:120px;transform:rotate(80deg);opacity:.55">
+  </section>
+
+  <!-- ============ PRODUCTS ============ -->
+  <section class="products" data-screen-label="04 Products">
+    <h2 class="sr-only">PRODUCTS</h2>
+    <div class="products__head">
+      <img class="products__title" src="../assets/transparent/typography/section-title-products.png" alt="PRODUCTS">
+      <a class="products__viewall" href="#" aria-disabled="true">VIEW ALL <span class="arrow">→</span></a>
+    </div>
+    <div class="products__grid">
+      <div class="product">
+        <div class="product__bg"><img src="../assets/transparent/backgrounds/product-bg-blob-pink.png" alt=""></div>
+        <div class="product__img"><img src="../assets/transparent/photos/product-02.png" alt="Beads Key Holder"></div>
+        <div class="product__name">BEADS KEY HOLDER</div>
+        <div class="product__price">¥1,925</div>
+        <div class="product__badge">BEST!</div>
+      </div>
+      <div class="product">
+        <div class="product__bg"><img src="../assets/transparent/backgrounds/product-bg-blob-yellow.png" alt=""></div>
+        <div class="product__img"><img src="../assets/transparent/photos/product-01.png" alt="Mug Cup"></div>
+        <div class="product__name">MUG CUP</div>
+        <div class="product__price">¥2,420</div>
+      </div>
+      <div class="product">
+        <div class="product__bg"><img src="../assets/transparent/backgrounds/product-bg-blob-yellow.png" alt=""></div>
+        <div class="product__img"><img src="../assets/transparent/photos/product-03.png" alt="Flower Phone Case"></div>
+        <div class="product__name">FLOWER PHONE CASE <span class="product__plus">+5</span></div>
+        <div class="product__price">¥2,310</div>
+      </div>
+      <div class="product">
+        <div class="product__bg"><img src="../assets/transparent/backgrounds/product-bg-blob-purple.png" alt=""></div>
+        <div class="product__img"><img src="../assets/transparent/photos/product-04.png" alt="Stripe Pouch"></div>
+        <div class="product__name">STRIPE POUCH</div>
+        <div class="product__price">¥1,980</div>
+      </div>
+      <div class="product">
+        <div class="product__bg"><img src="../assets/transparent/backgrounds/product-bg-blob-lime.png" alt=""></div>
+        <div class="product__img"><img src="../assets/transparent/photos/product-05.png" alt="Heart Mirror"></div>
+        <div class="product__name">HEART MIRROR</div>
+        <div class="product__price">¥1,540</div>
+      </div>
+    </div>
+    <img class="deco d-star1" src="../assets/transparent/stickers/sticker-sparkle.png" alt="">
+    <img class="deco d-sparkle" src="../assets/transparent/stickers/doodle-star-orange.png" alt="">
+    <!-- line-double-orange: PRODUCTSの上中央アクセント -->
+    <img class="y2k-deco" src="../assets/transparent/stickers/line-double-orange.png" alt="" style="top:-20px;left:50%;width:180px;transform:translateX(-50%) rotate(-3deg);opacity:.7">
+    <!-- Y2K装飾 (PRODUCTS) - 4隅と中間に分散 -->
+    <img class="y2k-deco y2k-twinkle" src="../assets/transparent/stickers/sticker-flower-pink.png" alt="" style="top:-40px;left:-60px;width:46px;--rot:-12deg">
+    <img class="y2k-deco y2k-spin" src="../assets/transparent/stickers/sticker-burst.png" alt="" style="top:-40px;right:35%;width:36px;opacity:.7">
+    <img class="y2k-deco y2k-twinkle" src="../assets/transparent/stickers/doodle-heart-pink.png" alt="" style="top:55%;right:-40px;width:38px;--rot:20deg;animation-delay:1.5s">
+    <img class="y2k-deco y2k-float" src="../assets/transparent/stickers/sticker-flower-yellow.png" alt="" style="bottom:-30px;right:25%;width:48px;--rot:-15deg;animation-delay:1s">
+  </section>
+
+  <!-- ============ LOOKBOOK ============ -->
+  <section class="lookbook" data-screen-label="05 Lookbook">
+    <h2 class="sr-only">LOOKBOOK / STYLING</h2>
+    <div class="lookbook__left">
+      <img class="lookbook__title" src="../assets/transparent/typography/section-title-lookbook.png" alt="LOOKBOOK / STYLING" data-comment-anchor="a83f3af1a8-img">
+      <p class="lookbook__body">
+        ポップな色の小物をミックスして、<br>
+        あなただけのスタイルを見つけてみて。
+      </p>
+      <a class="lookbook__cta" href="#" aria-disabled="true">VIEW LOOKBOOK →</a>
+    </div>
+    <div class="lookbook__grid" data-comment-anchor="71b859e190-div">
+      <div class="lookcard tilt-1">
+        <img class="lookcard__bg" src="../assets/transparent/backgrounds/product-bg-blob-lime.png" alt=""
+             style="width:247px;height:329px;max-width:none;max-height:none;object-fit:fill;transform:translate(-41.13px,288.81px) matrix3d(1,-0.07,0,0,0.07,1,0,0,0,0,1,0,-121.99,-490,0,1) rotate(9.34deg)">
+        <img class="lookcard__img" src="../assets/transparent/photos/lookbook-model-01.png" alt=""
+             style="width:237px;height:274px;max-width:none;max-height:none;object-fit:fill;transform:translate(-40.28px,-40.45px) rotate(-1.74deg)">
+      </div>
+      <div class="lookcard tilt-2">
+        <img class="lookcard__bg" src="../assets/transparent/backgrounds/product-bg-blob-pink.png" alt=""
+             style="width:286px;height:338px;max-width:none;max-height:none;object-fit:fill;transform:translate(-79.84px,290.19px) matrix3d(1,0.05,0,0,-0.05,1,0,0,0,0,1,0,-114.17,-490,0,1)">
+        <img class="lookcard__img" src="../assets/transparent/photos/lookbook-model-02.png" alt=""
+             style="width:254px;height:269px;max-width:none;max-height:none;object-fit:fill;transform:translate(-55px,-39px)">
+      </div>
+      <div class="lookcard tilt-3">
+        <img class="lookcard__bg" src="../assets/transparent/backgrounds/product-bg-blob-yellow.png" alt=""
+             style="width:270px;height:374px;max-width:none;max-height:none;object-fit:fill;transform:translate(-69.07px,270.48px) matrix3d(1,-0.03,0,0,0.03,1,0,0,0,0,1,0,-119.77,-490,0,1)">
+        <img class="lookcard__img" src="../assets/transparent/photos/lookbook-model-03.png" alt=""
+             style="width:257px;height:267px;max-width:none;max-height:none;object-fit:fill;transform:translate(-47px,-33px) rotate(0.18deg)">
+      </div>
+      <div class="lookcard tilt-4">
+        <img class="lookcard__bg" src="../assets/transparent/frames/photo-frame-polaroid.png" alt=""
+             style="width:327px;height:362px;max-width:none;max-height:none;min-width:0;min-height:0;object-fit:fill;transform:translate(-11.46px,-45.63px) matrix3d(1,0.03,0,0,-0.03,1,0,0,0,0,1,0,-140,-165,0,1)">
+        <img class="lookcard__img" src="../assets/transparent/photos/ugc-02.png" alt=""
+             style="width:199px;height:213px;max-width:none;max-height:none;min-width:0;min-height:0;object-fit:fill;transform:translate(13.53px,-52.3px) rotate(0.79deg)">
+      </div>
+    </div>
+    <!-- Y2K装飾 (LOOKBOOK) - 4隅+α に分散 + line-thin-pink + tape-lime -->
+    <img class="y2k-deco y2k-drift" src="../assets/transparent/stickers/sticker-star-yellow.png" alt="" style="top:-30px;left:240px;width:32px;--rot:5deg">
+    <img class="y2k-deco y2k-float" src="../assets/transparent/stickers/sticker-flower-yellow.png" alt="" style="top:-30px;right:-40px;width:48px;--rot:-15deg;animation-delay:1s">
+    <img class="y2k-deco y2k-twinkle" src="../assets/transparent/stickers/sticker-flower-pink.png" alt="" style="bottom:30px;left:-50px;width:46px;--rot:8deg">
+    <img class="y2k-deco y2k-spin" src="../assets/transparent/stickers/sticker-burst.png" alt="" style="bottom:140px;right:-50px;width:38px;opacity:.7">
+    <!-- line-thin-pink: 上側中央寄りの細線アクセント -->
+    <img class="y2k-deco" src="../assets/transparent/stickers/line-thin-pink.png" alt="" style="top:80px;left:-30px;width:180px;transform:rotate(70deg);opacity:.55">
+    <!-- tape-lime: tilt-1（ライム）カードの左上に貼る -->
+    <img class="y2k-deco y2k-float" src="../assets/transparent/stickers/tape-lime.png" alt="" style="top:-10px;left:340px;width:90px;transform:rotate(-18deg);opacity:.92;animation-delay:.3s">
+  </section>
+
+  <!-- ============ NEXT DROP / EVENT ============ -->
+  <section class="drop" data-screen-label="06 Drop">
+    <h2 class="sr-only">NEXT DROP / EVENT</h2>
+    <img class="drop__bgimg" src="../assets/transparent/backgrounds/drop-section-bg.png" alt="">
+    <div class="drop__shop">
+      <img src="../assets/transparent/photos/drop-storefront.png" alt="Pop Bloom Pop-up store">
+      <div class="drop__limited">先着50名様<br>ノベルティ<br>プレゼント！</div>
+    </div>
+    <div class="drop__copy">
+      <img class="drop__title" src="../assets/transparent/typography/section-title-drop.png" alt="NEXT DROP / EVENT" data-comment-anchor="971708dd81-img">
+      <div class="drop__details">
+        POP BLOOM POP-UP STORE<br>
+        at ルミネエスト新宿 3F<br>
+        5.24 FRI – 6.9 SUN
+      </div>
+      <a class="drop__cta" href="#" aria-disabled="true">MORE INFO <span class="arrow">→</span></a>
+    </div>
+    <div class="drop__product">
+      <img src="../assets/transparent/photos/drop-product-02.png" alt="Drop product">
+    </div>
+    <img class="deco d-flower" src="../assets/transparent/stickers/sticker-flower-pink.png" alt="">
+    <img class="deco d-sparkle" src="../assets/transparent/stickers/sticker-sparkle.png" alt="">
+    <img src="../assets/transparent/stickers/doodle-star-orange.png" alt=""
+         style="position:absolute;left:969.38px;top:3.83px;z-index:100;transform:translate(31px,314px) rotate(-11.2deg);width:73px;height:74px">
+    <img src="../assets/transparent/stickers/sticker-dot-pink.png" alt=""
+         style="position:absolute;left:1288px;top:96px;z-index:100;width:131px;height:150px;transform:translate(-66px,9px)">
+    <!-- tape-orange: drop__productの上に貼る -->
+    <img class="y2k-deco" src="../assets/transparent/stickers/tape-orange.png" alt="" style="top:10px;right:200px;width:100px;transform:rotate(15deg);opacity:.95;z-index:5">
+  </section>
+
+  <!-- ============ COMMUNITY ============ -->
+  <section class="community" data-screen-label="07 Community">
+    <h2 class="sr-only">COMMUNITY</h2>
+    <div class="community__left">
+      <img class="community__title" src="../assets/transparent/typography/section-title-community.png" alt="COMMUNITY">
+      <p class="community__body">
+        みんなの「#popbloom」<br>
+        コーデやお気に入りのアイテムをシェアしてね！
+      </p>
+      <a class="community__tag" href="#" aria-disabled="true">#popbloom</a>
+    </div>
+    <div class="community__grid">
+      <img src="../assets/transparent/photos/ugc-04.png" alt="">
+      <img src="../assets/transparent/photos/ugc-01.png?v=5" alt="">
+      <img src="../assets/transparent/photos/ugc-03.png" alt="">
+      <img src="../assets/transparent/photos/ugc-02.png" alt="">
+      <div class="community__follow">FOLLOW<br>US!</div>
+    </div>
+    <!-- Y2K装飾 (COMMUNITY) - 4隅+中間に分散 + tape-yellow -->
+    <img class="y2k-deco y2k-float" src="../assets/transparent/stickers/sticker-flower-yellow.png" alt="" style="top:-20px;left:-40px;width:42px;--rot:-15deg;animation-delay:1.3s">
+    <img class="y2k-deco y2k-drift" src="../assets/transparent/stickers/sticker-star-pink.png" alt="" style="top:-30px;left:40%;width:30px;--rot:25deg">
+    <img class="y2k-deco y2k-spin" src="../assets/transparent/stickers/sticker-burst.png" alt="" style="top:-20px;right:-30px;width:38px;opacity:.6">
+    <img class="y2k-deco y2k-twinkle" src="../assets/transparent/stickers/sticker-flower-pink.png" alt="" style="bottom:-20px;left:-60px;width:48px;--rot:10deg">
+    <img class="y2k-deco y2k-twinkle" src="../assets/transparent/stickers/sticker-heart-pink.png" alt="" style="bottom:-20px;right:30%;width:36px;--rot:18deg;animation-delay:.7s">
+    <!-- tape-yellow: communityグリッド上に貼る -->
+    <img class="y2k-deco" src="../assets/transparent/stickers/tape-yellow.png" alt="" style="top:-15px;right:38%;width:90px;transform:rotate(20deg);opacity:.95;z-index:6">
+  </section>
+
+  </div><!-- /.page -->
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" data-screen-label="08 Footer">
+    <div class="footer__inner">
+    <div class="footer__grid">
+      <img class="footer__logo" src="../assets/transparent/logos/footer-logo.png" alt="Pop Bloom">
+      <div class="footer__col">
+        <h4>SHOP</h4>
+        <ul>
+          <li><a href="#" aria-disabled="true">NEW IN</a></li>
+          <li><a href="#" aria-disabled="true">BEST SELLER</a></li>
+          <li><a href="#" aria-disabled="true">STATIONERY</a></li>
+          <li><a href="#" aria-disabled="true">ACCESSORY</a></li>
+          <li><a href="#" aria-disabled="true">HOME</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>INFO</h4>
+        <ul>
+          <li><a href="#" aria-disabled="true">ABOUT</a></li>
+          <li><a href="#" aria-disabled="true">FAQ</a></li>
+          <li><a href="#" aria-disabled="true">SHIPPING</a></li>
+          <li><a href="#" aria-disabled="true">RETURN</a></li>
+          <li><a href="#" aria-disabled="true">CONTACT</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>ACCOUNT</h4>
+        <ul>
+          <li><a href="#" aria-disabled="true">LOGIN</a></li>
+          <li><a href="#" aria-disabled="true">MY PAGE</a></li>
+          <li><a href="#" aria-disabled="true">WISHLIST</a></li>
+          <li><a href="#" aria-disabled="true">CART</a></li>
+        </ul>
+      </div>
+      <div class="footer__follow">
+        <h4>FOLLOW US!</h4>
+        <div class="footer__sns">
+          <a href="#" aria-disabled="true"><img src="../assets/transparent/ui/sns-icon-instagram.png" alt="Instagram"></a>
+          <a href="#" aria-disabled="true"><img src="../assets/transparent/ui/sns-icon-tiktok.png" alt="TikTok"></a>
+          <a href="#" aria-disabled="true"><img src="../assets/transparent/ui/sns-icon-x.png" alt="X"></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">© 2025 Pop Bloom. All rights reserved.</div>
+    <img class="footer__deco" src="../assets/transparent/stickers/sticker-flower-yellow.png" alt="">
+    <img class="footer__deco-2" src="../assets/transparent/stickers/doodle-burst-yellow.png" alt="">
+    <!-- Y2K装飾追加 (FOOTER) - グリッドの上余白とロゴ周辺のみ -->
+    <img class="y2k-deco y2k-twinkle" src="../assets/transparent/stickers/sticker-sparkle.png" alt="" style="top:20px;left:50%;width:30px;filter:brightness(0) invert(1);opacity:.7">
+    <img class="y2k-deco y2k-spin" src="../assets/transparent/stickers/sticker-burst.png" alt="" style="top:30px;right:20px;width:28px;opacity:.6;filter:brightness(0) invert(1)">
+    </div><!-- /.footer__inner -->
+  </footer>
+
+</body>
+</html>

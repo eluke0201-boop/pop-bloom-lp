@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Environment
+.env
+.env.local
+tools/.env
+*.key
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+.claude/
+
+# Vercel
+.vercel
+
+# Internal docs (private)
+PROGRESS.md
+LEARNINGS.md
+SKILL-DRAFT.md
+BRIEF.md
+
+# Original mock images / large dev assets
+assets/originals/
+
+# Large archive files
+*.tar
+*.tar.gz
+*.zip
+
+# Temp / cache
+tmp/
+*.tmp

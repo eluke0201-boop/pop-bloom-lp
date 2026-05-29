@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Pop Bloom — Bright Stuff for Every Day</title>
+<meta name="viewport" content="width=1440">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Fredoka:wght@500;600;700&family=Caveat+Brush&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#fbf2dd;
+    --cream-2:#f7ead0;
+    --orange:#f15a25;
+    --orange-dk:#d94a18;
+    --pink:#f4a5c0;
+    --hot-pink:#ee5d96;
+    --purple:#5b3a9c;
+    --lime:#c8d83a;
+    --yellow:#f4ca38;
+    --ink:#231f1c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--cream);color:var(--ink);font-family:"Noto Sans JP","Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased}
+  body{min-width:1440px}
+  img{display:block;max-width:100%;user-select:none;-webkit-user-drag:none}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+  .page{width:1440px;margin:0 auto;position:relative;overflow:hidden}
+
+  /* ============ HEADER ============ */
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:28px 64px 0;position:relative;z-index:30}
+  .nav__logo{width:138px}
+  .nav__logo img{width:100%}
+  .nav__links{display:flex;gap:48px;font-family:"Fredoka",sans-serif;font-weight:600;font-size:15px;letter-spacing:.08em;color:var(--ink)}
+  .nav__links a{position:relative;padding:6px 2px;transition:color .2s}
+  .nav__links a:hover{color:var(--orange)}
+  .nav__icons{display:flex;gap:24px;align-items:center}
+  .nav__icons img{width:22px;opacity:.85}
+  .nav__cart{position:relative}
+
+  /* ============ HERO ============ */
+  .hero{position:relative;padding:36px 64px 80px;min-height:820px}
+  .hero__left{position:relative;width:620px;z-index:5}
+  .hero__typo{width:560px;margin-left:-18px;margin-top:-60px;margin-bottom:-80px;display:block}
+  .hero__sub{font-size:14px;line-height:2;margin-top:18px;color:#3a312c;letter-spacing:.04em}
+  .hero__cta{display:inline-flex;align-items:center;gap:10px;margin-top:28px;background:var(--orange);color:#fff;font-family:"Fredoka",sans-serif;font-weight:600;letter-spacing:.12em;font-size:14px;padding:16px 34px 16px 30px;border-radius:999px;box-shadow:0 8px 0 -2px rgba(241,90,37,.25);transition:transform .2s, box-shadow .2s}
+  .hero__cta:hover{transform:translateY(-2px);box-shadow:0 12px 0 -2px rgba(241,90,37,.3)}
+  .hero__cta .arrow{width:22px;height:22px;border-radius:50%;background:#fff;color:var(--orange);display:grid;place-items:center;font-size:12px}
+  .hero__right{position:absolute;top:0;right:40px;width:720px;height:720px;z-index:3}
+  .hero__blob{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+  .hero__blob.b1{transform:scale(1.0) translate(0,0)}
+  .hero__blob.b2{transform:scale(0.95) translate(60px,40px);opacity:.85;mix-blend-mode:multiply}
+  .hero__model{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center 60%;z-index:4;-webkit-mask-image:url(assets/backgrounds/hero-bg-blob-orange.png);mask-image:url(assets/backgrounds/hero-bg-blob-orange.png);-webkit-mask-size:contain;mask-size:contain;-webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+  .hero__badge{position:absolute;right:60px;bottom:80px;width:130px;height:90px;background:var(--purple);border-radius:50%;color:#fff;display:grid;place-items:center;text-align:center;font-family:"Caveat Brush",cursive;font-size:18px;line-height:1.1;transform:rotate(-8deg);box-shadow:0 6px 16px rgba(91,58,156,.3);z-index:6}
+  .hero__badge span{display:block;color:var(--yellow)}
+  /* deco stickers */
+  .deco{position:absolute;pointer-events:none;z-index:4}
+  .hero .d-star1{top:120px;right:680px;width:78px;transform:rotate(-12deg)}
+  .hero .d-burst{top:240px;right:780px;width:96px}
+  .hero .d-heart{top:200px;right:30px;width:74px;transform:rotate(15deg);opacity:.7;z-index:6}
+  .hero .d-star2{bottom:280px;right:60px;width:48px;z-index:6}
+  .hero .d-line-y{top:80px;left:540px;width:140px;transform:rotate(-8deg)}
+  .hero .d-line-p{bottom:320px;left:480px;width:140px}
+  .hero .d-check{bottom:30px;left:-30px;width:300px;transform:rotate(8deg);opacity:.95}
+  .hero .d-sparkle{top:380px;left:560px;width:54px}
+
+  /* ============ ABOUT ============ */
+  .about{position:relative;padding:40px 64px 100px;display:grid;grid-template-columns:340px 1fr;gap:60px}
+  .about__title{width:240px;margin-top:-60px;margin-bottom:-60px;display:block;transform:rotate(-3deg);transform-origin:left center}
+  .about__body{font-size:13.5px;line-height:2.1;color:#3a312c;letter-spacing:.03em}
+  .about__cta{display:inline-flex;align-items:center;gap:10px;margin-top:24px;background:var(--pink);color:#fff;font-family:"Fredoka",sans-serif;font-weight:600;letter-spacing:.14em;font-size:12px;padding:14px 28px;border-radius:999px}
+  .about__cta:hover{background:var(--hot-pink)}
+  .about__right{position:relative;height:480px}
+  .about__photo1{position:absolute;left:0;top:30px;width:380px;transform:rotate(-3deg)}
+  .about__photo1 .bg{position:absolute;inset:-30px -20px;background:var(--yellow);transform:rotate(2deg);z-index:0;border-radius:6px;box-shadow:0 12px 30px rgba(0,0,0,.06)}
+  .about__photo1 img{position:relative;z-index:1;width:100%;border-radius:50% 60% 55% 45% / 55% 50% 60% 50%;filter:drop-shadow(0 10px 20px rgba(0,0,0,.08))}
+  .about__photo2{position:absolute;right:20px;top:80px;width:340px;transform:rotate(4deg);background:#fff;padding:18px 18px 14px;box-shadow:0 18px 40px rgba(0,0,0,.08)}
+  .about__photo2 img{width:100%;height:280px;object-fit:cover}
+  .about__photo2 .cap{font-family:"Caveat Brush",cursive;font-size:24px;color:var(--orange);text-align:center;margin-top:10px;letter-spacing:.02em}
+  .about .d-sparkle{top:0;left:280px;width:46px}
+  .about .d-star-y{bottom:60px;left:-10px;width:50px}
+  .about .d-circle{top:-10px;right:60px;width:60px;opacity:.7}
+
+  /* ============ PRODUCTS ============ */
+  .products{position:relative;padding:20px 64px 100px}
+  .products__head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px}
+  .products__title{width:280px;margin-top:-80px;margin-bottom:-90px;display:block;transform:rotate(-2deg);transform-origin:left center}
+  .products__viewall{display:inline-flex;align-items:center;gap:10px;border:1.5px solid var(--ink);border-radius:999px;padding:10px 22px;font-family:"Fredoka",sans-serif;font-weight:600;font-size:12px;letter-spacing:.14em}
+  .products__viewall .arrow{width:18px;height:18px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:10px}
+  .products__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
+  .product{position:relative;text-align:center}
+  .product__img{position:relative;height:300px;display:grid;place-items:center;z-index:1;margin-bottom:14px}
+  .product__bg{position:absolute;left:50%;top:140px;transform:translate(-50%,-50%);width:115%;height:300px;z-index:0;pointer-events:none}
+  .product__bg img{width:100%;height:100%;object-fit:contain}
+  .product__img img{max-height:200px;max-width:65%;filter:drop-shadow(0 8px 14px rgba(0,0,0,.08));position:relative;z-index:1}
+  .product__name{font-family:"Fredoka",sans-serif;font-weight:600;font-size:13px;letter-spacing:.14em;color:var(--ink);position:relative;z-index:1}
+  .product__price{font-family:"Fredoka",sans-serif;font-weight:500;font-size:13px;color:#5e514a;margin-top:6px;position:relative;z-index:1;letter-spacing:.05em}
+  .product__badge{display:inline-block;background:var(--orange);color:#fff;font-family:"Caveat Brush",cursive;font-size:13px;padding:3px 10px;border-radius:8px;margin-top:6px;transform:rotate(-3deg)}
+  .product__plus{display:inline-block;background:var(--orange);color:#fff;font-family:"Fredoka",sans-serif;font-weight:700;font-size:10px;padding:2px 6px;border-radius:8px;margin-left:6px;vertical-align:middle}
+  .products .d-star1{top:160px;left:30px;width:38px;z-index:2}
+  .products .d-sparkle{bottom:60px;right:30px;width:38px}
+
+  /* ============ LOOKBOOK ============ */
+  .lookbook{position:relative;padding:0 64px 100px;display:grid;grid-template-columns:300px 1fr;gap:48px}
+  .lookbook__title{width:300px;margin-top:-40px;margin-bottom:-50px;display:block;transform:rotate(-4deg);transform-origin:left center}
+  .lookbook__body{font-size:13.5px;line-height:2.1;color:#3a312c}
+  .lookbook__cta{display:inline-flex;align-items:center;gap:10px;margin-top:22px;background:var(--pink);color:#fff;font-family:"Fredoka",sans-serif;font-weight:600;letter-spacing:.14em;font-size:12px;padding:13px 26px;border-radius:999px}
+  .lookbook__cta:hover{background:var(--hot-pink)}
+  .lookbook__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:center}
+  .lookcard{position:relative;height:420px;display:flex;align-items:flex-end;justify-content:center}
+  .lookcard__bg{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:130%;height:115%;object-fit:contain;z-index:0}
+  .lookcard__img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;object-position:center bottom}
+  .lookcard.tilt-1 .lookcard__bg{transform:translate(-50%,-50%) rotate(-4deg)}
+  .lookcard.tilt-2 .lookcard__bg{transform:translate(-50%,-50%) rotate(3deg)}
+  .lookcard.tilt-3 .lookcard__bg{transform:translate(-50%,-50%) rotate(-2deg)}
+  .lookcard__photopaper{background:#fff;padding:10px 10px 14px;box-shadow:0 14px 28px rgba(0,0,0,.08);position:relative;z-index:1;width:90%;transform:rotate(2deg)}
+  .lookcard__photopaper img{width:100%;height:260px;object-fit:cover}
+
+  /* ============ NEXT DROP ============ */
+  .drop{position:relative;margin:60px 0 120px;padding:90px 100px;min-height:520px;display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:36px;align-items:center}
+  .drop__bgimg{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:115%;height:165%;object-fit:fill;z-index:0;pointer-events:none}
+  .drop > *:not(.drop__bgimg){position:relative;z-index:1}
+  .drop__shop{position:relative}
+  .drop__shop img{width:360px;transform:rotate(-3deg);filter:drop-shadow(0 14px 28px rgba(0,0,0,.18))}
+  .drop__limited{position:absolute;left:-10px;bottom:0;width:118px;height:118px;background:var(--hot-pink);color:#fff;border-radius:50%;display:grid;place-items:center;text-align:center;font-family:"Caveat Brush",cursive;font-size:17px;line-height:1.15;transform:rotate(-12deg);box-shadow:0 8px 16px rgba(238,93,150,.35);padding:12px}
+  .drop__copy{padding:0 10px;color:#fff;transform:rotate(-2deg);transform-origin:left center}
+  .drop__title{width:380px;display:block;margin-top:-110px;margin-bottom:-130px}
+  .drop__details{font-family:"Fredoka",sans-serif;font-weight:500;font-size:18px;line-height:1.5;color:#3a2068;letter-spacing:.04em}
+  .drop__cta{display:inline-flex;align-items:center;gap:10px;margin-top:14px;background:var(--purple);color:#fff;font-family:"Fredoka",sans-serif;font-weight:600;letter-spacing:.14em;font-size:14px;padding:14px 28px;border-radius:999px}
+  .drop__cta .arrow{width:20px;height:20px;border-radius:50%;background:#fff;color:var(--purple);display:grid;place-items:center;font-size:12px}
+  .drop__product{position:relative;background:#fff;padding:14px 14px 18px;box-shadow:0 18px 38px rgba(0,0,0,.18);transform:rotate(6deg);width:280px;justify-self:end}
+  .drop__product img{width:100%;height:240px;object-fit:cover}
+  .drop .d-flower{position:absolute;right:30px;top:20px;width:54px;z-index:5}
+  .drop .d-sparkle{position:absolute;right:80px;bottom:30px;width:46px;z-index:5}
+
+  /* ============ COMMUNITY ============ */
+  .community{position:relative;padding:20px 64px 100px;display:grid;grid-template-columns:300px 1fr;gap:32px;align-items:center}
+  .community__title{width:280px;margin-top:-70px;margin-bottom:-80px;display:block;transform:rotate(-3deg);transform-origin:left center}
+  .community__body{font-size:13.5px;line-height:2.1;color:#3a312c}
+  .community__tag{display:inline-block;margin-top:14px;color:var(--orange);font-family:"Fredoka",sans-serif;font-weight:700;font-size:18px;letter-spacing:.05em}
+  .community__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;position:relative}
+  .community__grid img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:8px;box-shadow:0 8px 18px rgba(0,0,0,.08)}
+  .community__grid img:nth-child(1){transform:rotate(-2deg)}
+  .community__grid img:nth-child(2){transform:rotate(2deg)}
+  .community__grid img:nth-child(3){transform:rotate(-1.5deg)}
+  .community__grid img:nth-child(4){transform:rotate(2.5deg)}
+  .community__follow{position:absolute;right:-30px;top:-20px;width:92px;height:92px;background:var(--purple);color:#fff;border-radius:50%;display:grid;place-items:center;text-align:center;font-family:"Caveat Brush",cursive;font-size:15px;line-height:1.15;transform:rotate(8deg);z-index:5;box-shadow:0 8px 16px rgba(91,58,156,.3)}
+
+  /* ============ FOOTER ============ */
+  .footer{position:relative;background:var(--hot-pink);color:#fff;padding:100px 64px 40px;margin-top:40px}
+  .footer::before{content:"";position:absolute;top:-1px;left:0;right:0;height:80px;background:var(--hot-pink);clip-path:path("M 0 80 C 200 0, 400 100, 720 40 C 1040 -10, 1240 90, 1440 30 L 1440 80 Z");transform:translateY(-79px)}
+  .footer__grid{display:grid;grid-template-columns:220px repeat(3,1fr) 1fr;gap:30px;align-items:flex-start}
+  .footer__logo{width:140px}
+  .footer__col h4{font-family:"Fredoka",sans-serif;font-weight:700;font-size:14px;letter-spacing:.14em;margin-bottom:18px}
+  .footer__col ul{list-style:none;display:flex;flex-direction:column;gap:10px;font-family:"Fredoka",sans-serif;font-weight:500;font-size:12px;letter-spacing:.14em}
+  .footer__col a:hover{opacity:.7}
+  .footer__follow h4{font-family:"Fredoka",sans-serif;font-weight:700;font-size:14px;letter-spacing:.14em;margin-bottom:18px}
+  .footer__sns{display:flex;gap:14px}
+  .footer__sns img{width:28px;height:28px;filter:brightness(0) invert(1)}
+  .footer__bottom{margin-top:60px;font-family:"Fredoka",sans-serif;font-size:11px;letter-spacing:.1em;opacity:.85;text-align:right}
+  .footer__deco{position:absolute;right:60px;top:60px;width:64px;opacity:.85}
+  .footer__deco-2{position:absolute;left:60px;bottom:30px;width:80px;opacity:.5;transform:rotate(-20deg)}
+
+  /* small typographic helpers */
+  .smcaps{font-family:"Fredoka",sans-serif;font-weight:600;letter-spacing:.14em}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ============ HEADER ============ -->
+  <header class="nav" data-screen-label="01 Header">
+    <a class="nav__logo" href="#"><img src="assets/logos/hero-logo.png" alt="Pop Bloom"></a>
+    <nav class="nav__links">
+      <a href="#">NEW IN</a>
+      <a href="#">SHOP</a>
+      <a href="#">LOOKBOOK</a>
+      <a href="#">ABOUT</a>
+      <a href="#">JOURNAL</a>
+    </nav>
+    <div class="nav__icons">
+      <a href="#"><img src="assets/ui/nav-icon-search.png" alt="Search"></a>
+      <a href="#"><img src="assets/ui/nav-icon-heart.png" alt="Wishlist"></a>
+      <a href="#" class="nav__cart"><img src="assets/ui/nav-icon-cart.png" alt="Cart" data-comment-anchor="6d6ba892bf-img"></a>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" data-screen-label="02 Hero" data-comment-anchor="27bf8dbd8b-section">
+    <div class="hero__left">
+      <img class="hero__typo" src="assets/typography/hero-typo.png" alt="Bright Stuff for Every Day!">
+      <p class="hero__sub">
+        毎日を、ちょっともっと自分らしく。<br>
+        Pop Bloom はじける雑貨と、かわいいの魔法。
+      </p>
+      <a class="hero__cta" href="#">
+        SHOP NEW IN <span class="arrow">→</span>
+      </a>
+    </div>
+
+    <div class="hero__right">
+      <img class="hero__blob b1" src="assets/backgrounds/hero-bg-blob-orange.png" alt="">
+      <img class="hero__blob b2" src="assets/backgrounds/hero-bg-blob-yellow.png" alt="">
+      <img class="hero__model" src="assets/photos/hero-model.png" alt="" data-comment-anchor="3a849a7a88-img">
+      <div class="hero__badge">かわいいを<br><span>世界中へ！</span></div>
+    </div>
+
+    <img class="deco d-star1" src="assets/stickers/doodle-star-orange.png" alt="">
+    <img class="deco d-burst" src="assets/stickers/doodle-burst-yellow.png" alt="">
+    <img class="deco d-heart" src="assets/stickers/doodle-heart-pink.png" alt="">
+    <img class="deco d-star2" src="assets/stickers/sticker-star-yellow.png" alt="">
+    <img class="deco d-line-y" src="assets/stickers/line-thin-yellow.png" alt="">
+    <img class="deco d-line-p" src="assets/stickers/line-wavy-pink.png" alt="">
+    <img class="deco d-check" src="assets/stickers/sticker-ribbon-lime-check.png" alt="">
+    <img class="deco d-sparkle" src="assets/stickers/sticker-sparkle.png" alt="">
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about" data-screen-label="03 About">
+    <div class="about__left">
+      <img class="about__title" src="assets/typography/section-title-about.png" alt="ABOUT">
+      <p class="about__body">
+        Pop Bloom は、気分が上がる雑貨と<br>
+        ちょっとレトロでポップなアイテムを集めた<br>
+        ライフスタイルショップ。<br>
+        自分の「好き」を着飾って、もっと自由に。<br>
+        もっと楽しく毎日を彩ろう！
+      </p>
+      <a class="about__cta" href="#">READ MORE →</a>
+    </div>
+    <div class="about__right">
+      <div class="about__photo1">
+        <span class="bg"></span>
+        <img src="assets/photos/about-product-display.png" alt="Pop Bloom store display">
+      </div>
+      <div class="about__photo2">
+        <img src="assets/photos/ugc-04.png" alt="Pop Bloom accessories">
+        <div class="cap">ENJOY YOUR WORLD!</div>
+      </div>
+      <img class="deco d-sparkle" src="assets/stickers/sticker-sparkle.png" alt="">
+      <img class="deco d-star-y" src="assets/stickers/doodle-star-orange.png" alt="">
+      <img class="deco d-circle" src="assets/stickers/doodle-circle-lime.png" alt="">
+    </div>
+  </section>
+
+  <!-- ============ PRODUCTS ============ -->
+  <section class="products" data-screen-label="04 Products">
+    <div class="products__head">
+      <img class="products__title" src="assets/typography/section-title-products.png" alt="PRODUCTS">
+      <a class="products__viewall" href="#">VIEW ALL <span class="arrow">→</span></a>
+    </div>
+    <div class="products__grid">
+      <div class="product">
+        <div class="product__bg"><img src="assets/backgrounds/product-bg-blob-pink.png" alt=""></div>
+        <div class="product__img"><img src="assets/photos/product-02.png" alt="Beads Key Holder"></div>
+        <div class="product__name">BEADS KEY HOLDER</div>
+        <div class="product__price">¥1,925</div>
+        <div class="product__badge">BEST!</div>
+      </div>
+      <div class="product">
+        <div class="product__bg"><img src="assets/backgrounds/product-bg-blob-yellow.png" alt=""></div>
+        <div class="product__img"><img src="assets/photos/product-01.png" alt="Mug Cup"></div>
+        <div class="product__name">MUG CUP</div>
+        <div class="product__price">¥2,420</div>
+      </div>
+      <div class="product">
+        <div class="product__bg"><img src="assets/backgrounds/product-bg-blob-yellow.png" alt=""></div>
+        <div class="product__img"><img src="assets/photos/product-03.png" alt="Flower Phone Case"></div>
+        <div class="product__name">FLOWER PHONE CASE <span class="product__plus">+5</span></div>
+        <div class="product__price">¥2,310</div>
+      </div>
+      <div class="product">
+        <div class="product__bg"><img src="assets/backgrounds/product-bg-blob-purple.png" alt=""></div>
+        <div class="product__img"><img src="assets/photos/product-04.png" alt="Stripe Pouch"></div>
+        <div class="product__name">STRIPE POUCH</div>
+        <div class="product__price">¥1,980</div>
+      </div>
+      <div class="product">
+        <div class="product__bg"><img src="assets/backgrounds/product-bg-blob-lime.png" alt=""></div>
+        <div class="product__img"><img src="assets/photos/product-05.png" alt="Heart Mirror"></div>
+        <div class="product__name">HEART MIRROR</div>
+        <div class="product__price">¥1,540</div>
+      </div>
+    </div>
+    <img class="deco d-star1" src="assets/stickers/sticker-sparkle.png" alt="">
+    <img class="deco d-sparkle" src="assets/stickers/doodle-star-orange.png" alt="">
+  </section>
+
+  <!-- ============ LOOKBOOK ============ -->
+  <section class="lookbook" data-screen-label="05 Lookbook">
+    <div class="lookbook__left">
+      <img class="lookbook__title" src="assets/typography/section-title-lookbook.png" alt="LOOKBOOK / STYLING" data-comment-anchor="a83f3af1a8-img">
+      <p class="lookbook__body">
+        ポップな色の小物をミックスして、<br>
+        あなただけのスタイルを見つけてみて。
+      </p>
+      <a class="lookbook__cta" href="#">VIEW LOOKBOOK →</a>
+    </div>
+    <div class="lookbook__grid" data-comment-anchor="71b859e190-div">
+      <div class="lookcard tilt-1">
+        <img class="lookcard__bg" src="assets/backgrounds/product-bg-blob-lime.png" alt="">
+        <img class="lookcard__img" src="assets/photos/lookbook-model-01.png" alt="">
+      </div>
+      <div class="lookcard tilt-2">
+        <img class="lookcard__bg" src="assets/backgrounds/product-bg-blob-pink.png" alt="">
+        <img class="lookcard__img" src="assets/photos/lookbook-model-02.png" alt="">
+      </div>
+      <div class="lookcard tilt-3">
+        <img class="lookcard__bg" src="assets/backgrounds/product-bg-blob-yellow.png" alt="">
+        <img class="lookcard__img" src="assets/photos/lookbook-model-03.png" alt="">
+      </div>
+      <div class="lookcard tilt-4 lookcard--paper">
+        <div class="lookcard__photopaper">
+          <img src="assets/photos/ugc-02.png" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NEXT DROP / EVENT ============ -->
+  <section class="drop" data-screen-label="06 Drop">
+    <img class="drop__bgimg" src="assets/backgrounds/drop-section-bg.png" alt="">
+    <div class="drop__shop">
+      <img src="assets/photos/drop-storefront.png" alt="Pop Bloom Pop-up store">
+      <div class="drop__limited">先着50名様<br>ノベルティ<br>プレゼント！</div>
+    </div>
+    <div class="drop__copy">
+      <img class="drop__title" src="assets/typography/section-title-drop.png" alt="NEXT DROP / EVENT" data-comment-anchor="971708dd81-img">
+      <div class="drop__details">
+        POP BLOOM POP-UP STORE<br>
+        at ルミネエスト新宿 3F<br>
+        5.24 FRI – 6.9 SUN
+      </div>
+      <a class="drop__cta" href="#">MORE INFO <span class="arrow">→</span></a>
+    </div>
+    <div class="drop__product">
+      <img src="assets/photos/drop-product-02.png" alt="Drop product">
+    </div>
+    <img class="deco d-flower" src="assets/stickers/sticker-flower-pink.png" alt="">
+    <img class="deco d-sparkle" src="assets/stickers/sticker-sparkle.png" alt="">
+  </section>
+
+  <!-- ============ COMMUNITY ============ -->
+  <section class="community" data-screen-label="07 Community">
+    <div class="community__left">
+      <img class="community__title" src="assets/typography/section-title-community.png" alt="COMMUNITY">
+      <p class="community__body">
+        みんなの「#popbloom」<br>
+        コーデやお気に入りのアイテムをシェアしてね！
+      </p>
+      <a class="community__tag" href="#">#popbloom</a>
+    </div>
+    <div class="community__grid">
+      <img src="assets/photos/ugc-04.png" alt="">
+      <img src="assets/photos/ugc-01.png" alt="">
+      <img src="assets/photos/ugc-03.png" alt="">
+      <img src="assets/photos/ugc-02.png" alt="">
+      <div class="community__follow">FOLLOW<br>US!</div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" data-screen-label="08 Footer">
+    <div class="footer__grid">
+      <img class="footer__logo" src="assets/logos/footer-logo.png" alt="Pop Bloom">
+      <div class="footer__col">
+        <h4>SHOP</h4>
+        <ul>
+          <li><a href="#">NEW IN</a></li>
+          <li><a href="#">BEST SELLER</a></li>
+          <li><a href="#">STATIONERY</a></li>
+          <li><a href="#">ACCESSORY</a></li>
+          <li><a href="#">HOME</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>INFO</h4>
+        <ul>
+          <li><a href="#">ABOUT</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">SHIPPING</a></li>
+          <li><a href="#">RETURN</a></li>
+          <li><a href="#">CONTACT</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>ACCOUNT</h4>
+        <ul>
+          <li><a href="#">LOGIN</a></li>
+          <li><a href="#">MY PAGE</a></li>
+          <li><a href="#">WISHLIST</a></li>
+          <li><a href="#">CART</a></li>
+        </ul>
+      </div>
+      <div class="footer__follow">
+        <h4>FOLLOW US!</h4>
+        <div class="footer__sns">
+          <a href="#"><img src="assets/ui/sns-icon-instagram.png" alt="Instagram"></a>
+          <a href="#"><img src="assets/ui/sns-icon-tiktok.png" alt="TikTok"></a>
+          <a href="#"><img src="assets/ui/sns-icon-x.png" alt="X"></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">© 2025 Pop Bloom. All rights reserved.</div>
+    <img class="footer__deco" src="assets/stickers/sticker-flower-yellow.png" alt="">
+    <img class="footer__deco-2" src="assets/stickers/doodle-burst-yellow.png" alt="">
+  </footer>
+
+</div>
+</body>
+</html>

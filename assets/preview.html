@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pop Bloom-2 — 素材プレビュー (60点)</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #f5f5f7; padding: 24px; }
+    h1 { font-size: 24px; margin-bottom: 8px; }
+    .subtitle { color: #666; margin-bottom: 24px; font-size: 14px; }
+    h2 { font-size: 18px; margin: 32px 0 16px; color: #333; border-bottom: 2px solid #ff6b9d; padding-bottom: 6px; }
+    h2 .count { color: #ff6b9d; font-weight: 400; margin-left: 8px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .label { padding: 10px 12px; font-size: 12px; font-weight: 600; color: #333; border-bottom: 1px solid #eee; }
+    .label small { display: block; color: #999; font-weight: 400; margin-top: 2px; font-family: monospace; }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; }
+    .img-wrap { aspect-ratio: 1/1; display: grid; place-items: center; padding: 8px; position: relative; }
+    .img-wrap.transparent { background-image: linear-gradient(45deg, #ddd 25%, transparent 25%), linear-gradient(-45deg, #ddd 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ddd 75%), linear-gradient(-45deg, transparent 75%, #ddd 75%); background-size: 16px 16px; background-position: 0 0, 0 8px, 8px -8px, -8px 0px; }
+    .img-wrap img { max-width: 100%; max-height: 100%; object-fit: contain; }
+    .img-wrap .tag { position: absolute; top: 4px; left: 4px; background: rgba(0,0,0,0.6); color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>🌸 Pop Bloom-2 素材プレビュー</h1>
+  <p class="subtitle">60点 | 左=元画像（白/黒背景）｜ 右=透過処理済み（市松模様が透過部分） | 透過素材は <code>transparent/{ジャンル}/</code> に整理済み</p>
+
+  <h2>logos <span class="count">(2)</span></h2>
+  <div class="grid" id="logos"></div>
+
+  <h2>typography <span class="count">(7)</span></h2>
+  <div class="grid" id="typography"></div>
+
+  <h2>backgrounds <span class="count">(7)</span></h2>
+  <div class="grid" id="backgrounds"></div>
+
+  <h2>stickers <span class="count">(20)</span></h2>
+  <div class="grid" id="stickers"></div>
+
+  <h2>photos <span class="count">(18)</span></h2>
+  <div class="grid" id="photos"></div>
+
+  <h2>ui <span class="count">(7)</span></h2>
+  <div class="grid" id="ui"></div>
+
+  <script>
+    const groups = {
+      logos: [
+        ['hero-logo', 'Heroロゴ（オレンジ）'],
+        ['footer-logo', 'フッターロゴ（白）'],
+      ],
+      typography: [
+        ['hero-typo', 'Hero英字タイポ'],
+        ['section-title-about', 'ABOUT見出し'],
+        ['section-title-products', 'PRODUCTS見出し'],
+        ['section-title-lookbook', 'LOOKBOOK見出し'],
+        ['section-title-drop', 'DROP見出し'],
+        ['section-title-community', 'COMMUNITY見出し'],
+        ['shop-now-button', 'SHOP NOWボタン'],
+      ],
+      backgrounds: [
+        ['hero-bg-blob-yellow', 'Hero黄色ブロブ'],
+        ['hero-bg-blob-orange', 'Heroオレンジブロブ'],
+        ['drop-section-bg', 'Drop背景帯'],
+        ['product-bg-blob-pink', '商品背景ピンク'],
+        ['product-bg-blob-yellow', '商品背景黄'],
+        ['product-bg-blob-purple', '商品背景紫'],
+        ['product-bg-blob-lime', '商品背景ライム'],
+      ],
+      stickers: [
+        ['sticker-flower-yellow', '黄色花'],
+        ['sticker-flower-pink', 'ピンク花'],
+        ['sticker-star-yellow', '黄色星'],
+        ['sticker-star-pink', 'ピンク星'],
+        ['sticker-heart-pink', 'ピンクハート'],
+        ['sticker-arrow-curve', '曲線矢印'],
+        ['sticker-sparkle', 'キラキラ'],
+        ['sticker-dot-pink', 'ピンクドット'],
+        ['sticker-burst', 'バースト'],
+        ['sticker-ribbon-lime-check', 'ライムチェッカーリボン'],
+        ['line-wavy-lime', '波線ライム'],
+        ['line-thin-pink', '細線ピンク'],
+        ['line-wavy-pink', '波線ピンク'],
+        ['line-thin-yellow', '細線イエロー'],
+        ['line-double-orange', '二重線オレンジ'],
+        ['doodle-star-orange', 'オレンジ星'],
+        ['doodle-burst-yellow', 'イエローバースト'],
+        ['doodle-circle-lime', 'ライム円'],
+        ['doodle-heart-pink', 'ピンクハート（細線）'],
+        ['doodle-exclaim-pink', 'ピンク強調マーク'],
+      ],
+      photos: [
+        ['hero-model', 'Heroモデル'],
+        ['about-product-display', 'About商品ディスプレイ'],
+        ['about-mascot', 'Aboutマスコット'],
+        ['product-01', '商品01'],
+        ['product-02', '商品02'],
+        ['product-03', '商品03'],
+        ['product-04', '商品04'],
+        ['product-05', '商品05'],
+        ['lookbook-model-01', 'Lookbookモデル01'],
+        ['lookbook-model-02', 'Lookbookモデル02'],
+        ['lookbook-model-03', 'Lookbookモデル03'],
+        ['drop-storefront', 'Drop店頭風景'],
+        ['drop-product-01', 'Drop商品01'],
+        ['drop-product-02', 'Drop商品02'],
+        ['ugc-01', 'UGC 01'],
+        ['ugc-02', 'UGC 02'],
+        ['ugc-03', 'UGC 03'],
+        ['ugc-04', 'UGC 04'],
+      ],
+      ui: [
+        ['nav-icon-search', 'ナビ：検索'],
+        ['nav-icon-heart', 'ナビ：お気に入り'],
+        ['nav-icon-cart', 'ナビ：カート'],
+        ['sns-icon-instagram', 'SNS：Instagram'],
+        ['sns-icon-tiktok', 'SNS：TikTok'],
+        ['sns-icon-x', 'SNS：X'],
+        ['newsletter-input', 'Newsletter入力欄'],
+      ],
+    };
+
+    for (const [groupId, items] of Object.entries(groups)) {
+      const grid = document.getElementById(groupId);
+      for (const [name, label] of items) {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <div class="label">${label}<small>${groupId}/${name}.png</small></div>
+          <div class="compare">
+            <div class="img-wrap"><span class="tag">元</span><img src="./originals/${groupId}/${name}.png" alt="${label}"></div>
+            <div class="img-wrap transparent"><span class="tag">透過</span><img src="./transparent/${groupId}/${name}.png" alt="${label}"></div>
+          </div>
+        `;
+        grid.appendChild(card);
+      }
+    }
+  </script>
+</body>
+</html>
